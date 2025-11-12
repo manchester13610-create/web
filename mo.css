@@ -1,0 +1,626 @@
+/* ========== General Styles ========== */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font-family: 'Cairo', sans-serif;
+   line-height: 1.6;
+   color: #4a4a4a;
+   background-color: #f5f1e8;
+}
+
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 20px;
+}
+
+/* ========== Header/Navbar ========== */
+.navbar {
+   background: #ffffff;
+   color: #2c2c2c;
+   padding: 1rem 0;
+   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+}
+
+.navbar .container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.logo {
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   cursor: pointer;
+   transition: all 0.3s ease;
+}
+
+.logo:hover {
+   transform: translateY(-2px);
+}
+
+.logo-icon {
+   font-size: 2.5rem;
+   color: #d4af37;
+   background: linear-gradient(135deg, #f5f1e8, #ffffff);
+   width: 60px;
+   height: 60px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 50%;
+   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+   font-weight: 700;
+}
+
+.logo-text h1 {
+   font-family: 'Cairo', sans-serif;
+   font-size: 1.4rem;
+   font-weight: 700;
+   color: #1a1a1a;
+   margin: 0;
+   letter-spacing: 0.5px;
+}
+
+.logo-text p {
+   font-family: 'Cairo', sans-serif;
+   font-size: 0.75rem;
+   color: #d4af37;
+   margin: 0;
+   font-weight: 500;
+   letter-spacing: 1px;
+}
+
+.nav-links {
+   display: flex;
+   gap: 2.5rem;
+   align-items: center;
+}
+
+.nav-links a {
+   color: #2c2c2c;
+   text-decoration: none;
+   font-family: 'Cairo', sans-serif;
+   font-weight: 600;
+   transition: all 0.3s ease;
+   font-size: 0.95rem;
+   position: relative;
+   padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 0;
+   height: 2px;
+   background: #d4af37;
+   transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+   color: #d4af37;
+}
+
+.nav-links a:hover::after {
+   width: 100%;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+   background: linear-gradient(135deg, #a0826d 0%, #8b7355 100%);
+   color: white;
+   padding: 100px 0;
+   text-align: center;
+   min-height: 80vh;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+   overflow: hidden;
+}
+
+.hero::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+               radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+   pointer-events: none;
+}
+
+.hero-content {
+   position: relative;
+   z-index: 2;
+   animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+   from {
+      opacity: 0;
+      transform: translateY(40px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+.hero-title {
+   font-family: 'Cairo', sans-serif;
+   font-size: 3.5rem;
+   margin-bottom: 1rem;
+   font-weight: 800;
+   text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(212, 175, 55, 0.3);
+   letter-spacing: 1px;
+   animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+   0%, 100% {
+      text-shadow: 
+         2px 2px 4px rgba(0, 0, 0, 0.3),
+         0 0 20px rgba(212, 175, 55, 0.3);
+      transform: scale(1);
+   }
+   50% {
+      text-shadow: 
+         2px 2px 4px rgba(0, 0, 0, 0.3),
+         0 0 30px rgba(212, 175, 55, 0.5);
+      transform: scale(1.02);
+   }
+}
+
+.hero-subtitle {
+   font-family: 'Cairo', sans-serif;
+   font-size: 1.4rem;
+   margin-bottom: 2.5rem;
+   opacity: 0.95;
+   font-weight: 500;
+   line-height: 1.8;
+   animation: fadeInScale 1.2s ease-out 0.3s both;
+}
+
+@keyframes fadeInScale {
+   from {
+      opacity: 0;
+      transform: scale(0.95);
+   }
+   to {
+      opacity: 0.95;
+      transform: scale(1);
+   }
+}
+
+.hero .cta-btn {
+   animation: bounceIn 1s ease-out 0.6s both;
+}
+
+@keyframes bounceIn {
+   0% {
+      opacity: 0;
+      transform: translateY(20px) scale(0.8);
+   }
+   50% {
+      transform: scale(1.05);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+   }
+}
+
+.hero .cta-btn {
+   position: relative;
+   overflow: hidden;
+}
+
+.hero .cta-btn::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: -100%;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+   transition: left 0.5s;
+}
+
+.hero .cta-btn:hover::before {
+   left: 100%;
+}
+
+/* ========== CTA Button ========== */
+.cta-btn {
+   background: linear-gradient(135deg, #d4af37 0%, #b8956a 100%);
+   color: white;
+   border: none;
+   padding: 15px 40px;
+   font-family: 'Cairo', sans-serif;
+   font-size: 1.1rem;
+   font-weight: 600;
+   border-radius: 50px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.cta-btn:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.cta-btn:active {
+   transform: translateY(-1px);
+}
+
+/* ========== Services Section ========== */
+.services {
+   padding: 80px 0;
+   background-color: #f5f1e8;
+}
+
+.services .container h2 {
+   font-family: 'Cairo', sans-serif;
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 3rem;
+   color: #8b7355;
+   position: relative;
+   padding-bottom: 1rem;
+   font-weight: 700;
+}
+
+.services .container h2::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 80px;
+   height: 4px;
+   background: linear-gradient(90deg, #d4af37, #b8956a);
+   border-radius: 2px;
+}
+
+.services-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 2rem;
+}
+
+.service-card {
+   background: white;
+   padding: 2rem;
+   border-radius: 10px;
+   text-align: center;
+   transition: all 0.3s ease;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+   cursor: pointer;
+   border-right: 4px solid transparent;
+}
+
+.service-card:hover {
+   transform: translateY(-10px);
+   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+   border-right: 4px solid #d4af37;
+}
+
+.service-icon {
+   font-size: 3rem;
+   margin-bottom: 1rem;
+}
+
+.service-card h3 {
+   font-family: 'Cairo', sans-serif;
+   font-size: 1.5rem;
+   color: #8b7355;
+   margin-bottom: 1rem;
+   font-weight: 600;
+}
+
+.service-card p {
+   font-family: 'Cairo', sans-serif;
+   color: #666;
+   line-height: 1.8;
+}
+
+/* ========== Team Section ========== */
+.team {
+   padding: 80px 0;
+   background: linear-gradient(135deg, #a0826d 0%, #8b7355 100%);
+   color: white;
+}
+
+.team .container h2 {
+   font-family: 'Cairo', sans-serif;
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 3rem;
+   position: relative;
+   padding-bottom: 1rem;
+   font-weight: 700;
+}
+
+.team .container h2::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 80px;
+   height: 4px;
+   background: #d4af37;
+   border-radius: 2px;
+}
+
+.team-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 2rem;
+}
+
+.team-member {
+   background: rgba(255, 255, 255, 0.1);
+   padding: 2rem;
+   border-radius: 10px;
+   text-align: center;
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   transition: all 0.3s ease;
+}
+
+.team-member:hover {
+   background: rgba(255, 255, 255, 0.15);
+   transform: translateY(-5px);
+   border: 1px solid #d4af37;
+}
+
+.member-image {
+   width: 120px;
+   height: 120px;
+   border-radius: 50%;
+   object-fit: cover;
+   margin-bottom: 1rem;
+   border: 3px solid #d4af37;
+   transition: all 0.3s ease;
+}
+
+.team-member:hover .member-image {
+   border-color: #ffffff;
+   transform: scale(1.05);
+}
+
+.team-member h3 {
+   font-family: 'Cairo', sans-serif;
+   font-size: 1.5rem;
+   margin-bottom: 0.5rem;
+   font-weight: 600;
+}
+
+.team-member p {
+   font-family: 'Cairo', sans-serif;
+   opacity: 0.9;
+}
+
+.member-specialty {
+   font-size: 0.85rem;
+   color: #d4af37;
+   font-weight: 600;
+   margin-top: 0.5rem !important;
+   opacity: 1;
+}
+
+/* ========== Contact Section ========== */
+.contact {
+   padding: 80px 0;
+   background-color: #f5f1e8;
+}
+
+.contact .container h2 {
+   font-family: 'Cairo', sans-serif;
+   text-align: center;
+   font-size: 2.5rem;
+   margin-bottom: 3rem;
+   color: #1a3a52;
+   position: relative;
+   padding-bottom: 1rem;
+   font-weight: 700;
+}
+
+.contact .container h2::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 80px;
+   height: 4px;
+   background: linear-gradient(90deg, #c9a961, #a67c52);
+   border-radius: 2px;
+}
+
+.contact-info {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   gap: 2rem;
+   margin-top: 2rem;
+}
+
+.contact-item {
+   background: white;
+   padding: 2rem;
+   border-radius: 10px;
+   text-align: center;
+   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+   transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.contact-item h4 {
+   font-family: 'Cairo', sans-serif;
+   font-size: 1.3rem;
+   color: #1a3a52;
+   margin-bottom: 0.5rem;
+   font-weight: 600;
+}
+
+.contact-item p {
+   font-family: 'Cairo', sans-serif;
+   color: #666;
+   font-size: 1.1rem;
+}
+
+/* ========== Footer ========== */
+.footer {
+   background: linear-gradient(135deg, #8b7355 0%, #a0826d 100%);
+   color: white;
+   padding: 3rem 0 1rem;
+   margin-top: 3rem;
+   position: relative;
+   overflow: hidden;
+}
+
+.footer::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   height: 3px;
+   background: linear-gradient(90deg, #d4af37, #b8956a, #d4af37);
+}
+
+.footer-content {
+   text-align: center;
+}
+
+.footer-content h3 {
+   font-family: 'Cairo', sans-serif;
+   font-size: 1.8rem;
+   font-weight: 700;
+   margin-bottom: 1rem;
+   color: #d4af37;
+}
+
+.footer-content p {
+   font-family: 'Cairo', sans-serif;
+   opacity: 0.95;
+   margin-bottom: 1.5rem;
+   font-size: 0.95rem;
+}
+
+.footer-social {
+   display: flex;
+   justify-content: center;
+   gap: 2rem;
+   margin-bottom: 1rem;
+   flex-wrap: wrap;
+}
+
+.social-link {
+   color: #d4af37;
+   text-decoration: none;
+   font-family: 'Cairo', sans-serif;
+   font-weight: 500;
+   transition: all 0.3s ease;
+   padding: 0.5rem 1rem;
+   border: 1px solid #d4af37;
+   border-radius: 25px;
+}
+
+.social-link:hover {
+   background: #d4af37;
+   color: #8b7355;
+   transform: translateY(-3px);
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+   .nav-links {
+      gap: 1rem;
+      flex-wrap: wrap;
+   }
+
+   .nav-links a {
+      font-size: 0.9rem;
+   }
+
+   .hero h2 {
+      font-size: 2rem;
+   }
+
+   .hero p {
+      font-size: 1rem;
+   }
+
+   .services .container h2,
+   .team .container h2,
+   .contact .container h2 {
+      font-size: 2rem;
+   }
+
+   .service-card,
+   .team-member,
+   .contact-item {
+      padding: 1.5rem;
+   }
+
+   .logo h1 {
+      font-size: 1.3rem;
+   }
+}
+
+@media (max-width: 480px) {
+   .navbar .container {
+      flex-direction: column;
+      gap: 1rem;
+   }
+
+   .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+   }
+
+   .nav-links a {
+      width: 100%;
+      padding: 0.5rem;
+   }
+
+   .hero {
+      padding: 50px 0;
+      min-height: auto;
+   }
+
+   .hero h2 {
+      font-size: 1.5rem;
+   }
+
+   .hero p {
+      font-size: 0.9rem;
+   }
+
+   .cta-btn {
+      padding: 12px 30px;
+      font-size: 1rem;
+   }
+}
